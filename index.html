@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Viko | Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #e0e0e0;
+      background-color: #0d0d0d;
+    }
+
+    header {
+      background-color: #111214;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0af;
+    }
+
+    header nav a {
+      color: #e0e0e0;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    header nav a:hover {
+      color: #0af;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* HERO / HOME */
+    #home {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    #home p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #c0c0c0;
+    }
+
+    /* ABOUT */
+    #about {
+      background: linear-gradient(120deg, #1f1c2c, #928dab);
+      padding: 2rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      color: #f0f0f0;
+    }
+
+    #about h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    /* SKILLS */
+    #skills {
+      background: linear-gradient(135deg, #232526, #414345);
+      padding: 2rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      color: #f0f0f0;
+    }
+
+    #skills h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .skills-list li {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s;
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-2px);
+    }
+
+    /* PROJECTS */
+    #projects {
+      background: linear-gradient(135deg, #0f2027, #2c5364);
+      padding: 2rem 1rem;
+      border-radius: 6px;
+      color: #f0f0f0;
+      margin-bottom: 2rem;
+    }
+
+    #projects h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .project-content {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #0af;
+    }
+
+    .project-content p {
+      flex: 1;
+      font-size: 0.95rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+    }
+
+    .project-content a {
+      align-self: flex-start;
+      background-color: #0af;
+      color: #111;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+
+    .project-content a:hover {
+      background-color: #19c;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header nav {
+        margin-top: 0.5rem;
+      }
+
+      header nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <div class="logo">Viko</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <!-- HERO / HOME -->
+  <section id="home">
+    <div>
+      <h1>Hi,I'm Viko.</h1>
+      <p>Systems Administrator with cloud exposure | Aspiring DevOps & Automation Enthusiast</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m Viktorio (Viko), a Systems Administrator specializing in Windows/Linux environments with solid cloud exposure (primarily Azure). Actively advancing my skills in DevOps methodologies and advanced automation—building CI/CD pipelines, writing infrastructure-as-code, and optimizing workflows to scale efficiently.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Azure (VMs, Virtual Networks, Storage)</li>
+        <li>Linux (Ubuntu, CentOS, Shell Scripting)</li>
+        <li>Windows Server Administration</li>
+        <li>PowerShell &amp; Bash</li>
+        <li>Terraform &amp; ARM Templates</li>
+        <li>Docker &amp; Kubernetes</li>
+        <li>CI/CD (GitHub Actions, Jenkins)</li>
+        <li>Monitoring (Prometheus, Grafana)</li>
+        <li>Security &amp; Compliance</li>
+        <li>Python &amp; Go</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x200/203a43/ffffff?text=Project+1" alt="Project 1 Screenshot" />
+          <div class="project-content">
+            <h3>Project Title 1</h3>
+            <p>
+              Example description for Project 1. Replace with your own details later.
+            </p>
+            <a href="#" target="_blank">View Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x200/414345/ffffff?text=Project+2" alt="Project 2 Screenshot" />
+          <div class="project-content">
+            <h3>Project Title 2</h3>
+            <p>
+              Example description for Project 2. Replace with your own details later.
+            </p>
+            <a href="#" target="_blank">View Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x200/232526/ffffff?text=Project+3" alt="Project 3 Screenshot" />
+          <div class="project-content">
+            <h3>Project Title 3</h3>
+            <p>
+              Example description for Project 3. Replace with your own details later.
+            </p>
+            <a href="#" target="_blank">View Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x200/0f2027/ffffff?text=Project+4" alt="Project 4 Screenshot" />
+          <div class="project-content">
+            <h3>Project Title 4</h3>
+            <p>
+              Example description for Project 4. Replace with your own details later.
+            </p>
+            <a href="#" target="_blank">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Viko. All rights reserved.
+  </footer>
+</body>
+</html>
